@@ -1,0 +1,152 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --correct-color: #2ecc71;
+  --incorrect-color: #e74c3c;
+  --text-color: #333;
+  --light-gray: #ecf0f1;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Ubuntu', 'Roboto', sans-serif;
+  background-color: #f5f7fa;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.quiz-app {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.quiz-container {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.question-card {
+  margin: 1.5rem 0;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.answer-btn {
+  background: var(--light-gray);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.answer-btn:hover:not(:disabled) {
+  background: #dfe6e9;
+  transform: translateY(-2px);
+}
+
+.answer-btn.correct {
+  background: var(--correct-color);
+  color: var(--white);
+}
+
+.answer-btn.incorrect {
+  background: var(--incorrect-color);
+  color: var(--white);
+}
+
+.answer-btn.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.result-screen {
+  text-align: center;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-screen h2 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 1.5rem 0;
+}
+
+.restart-btn {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.restart-btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .quiz-app {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  
+  .quiz-container, .result-screen {
+    padding: 1.5rem 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
