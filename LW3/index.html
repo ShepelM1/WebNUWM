@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор паролів</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Генератор паролів</h1>
+        
+        <div class="password-display">
+            <input type="text" id="password" readonly>
+            <button id="copy-btn">КОПІЯ</button>
+        </div>
+        
+        <div class="controls">
+            <div class="length-control">
+                <label for="length">Довжина пароля:</label>
+                <input type="range" id="length" min="4" max="32" value="12">
+                <span id="length-value">12</span>
+            </div>
+            
+            <div class="options">
+                <label><input type="checkbox" id="uppercase" checked> A-Z</label>
+                <label><input type="checkbox" id="lowercase" checked> a-z</label>
+                <label><input type="checkbox" id="numbers" checked> 0-9</label>
+                <label><input type="checkbox" id="symbols"> @$#%^</label>
+            </div>
+            
+            <button id="generate-btn">ГЕНЕРАЦІЯ</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список завдань</title>
+  <link rel="stylesheet" href="/style/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Список завдань</h1>
+    
+    <div class="add-task">
+      <h2>Введіть нове завдання</h2>
+      <form action="/add" method="POST">
+        <input type="text" name="taskText" required>
+        <button type="submit">Додати завдання</button>
+      </form>
+    </div>
+    
+    <div class="task-section">
+      <h2>Додані завдання</h2>
+      <ul>
+        <% tasks.filter(task => !task.completed).forEach(task => { %>
+          <li>
+            <form action="/toggle/<%= task.id %>" method="POST" class="checkbox-form">
+              <input type="checkbox" onchange="this.form.submit()">
+              <span><%= task.text %></span>
+            </form>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+    
+    <div class="task-section completed">
+      <h2>Виконані завдання</h2>
+      <ul>
+        <% tasks.filter(task => task.completed).forEach(task => { %>
+          <li>
+            <form action="/toggle/<%= task.id %>" method="POST" class="checkbox-form">
+              <input type="checkbox" checked onchange="this.form.submit()">
+              <span class="completed-task"><%= task.text %></span>
+            </form>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
